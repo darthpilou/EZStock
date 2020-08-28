@@ -343,10 +343,10 @@ EZStock.update = () => {
         row.querySelector('.EZStock-high').innerHTML = EZStock.formatPrice(EZStock.goods[id].highval, false);
 			
 		if (EZStock.goods[id].bought > 0) {
-			let buttonsellHTML = '<div style="width:28px;" class="bankButton bankButtonSell" id="bankGood-'+id+'_-All" '+Game.getDynamicTooltip('Game.ObjectsById['+EZStock.bank.minigame..parent.id+'].minigame.tradeTooltip('+id+',-10000)','this')+'>'+EZStock.formatPrice(EZStock.goods[id].profit+'</div>'
+			let buttonsellHTML = '<div style="width:28px;" class="bankButton bankButtonSell" id="bankGood-'+id+'_-All" >'+EZStock.formatPrice(EZStock.goods[id].profit+'£</div>'
 			row.querySelector('.EZStock-profit').innerHTML = buttonsellHTML;
-			AddEvent(l('bankGood-'+id+'_-All'),'click',(id) => {return (e) => {
-					if (EZStock.bank.minigame.sellGood(id,10000)) Game.SparkleOn(e.target);
+			AddEvent(l('bankGood-'+id+'_All'),'click',(id) => {return () => {
+					EZStock.bank.minigame.sellGood(id,10000)
 				}}(id));
 		}
 		else {
