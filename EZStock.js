@@ -347,7 +347,7 @@ EZStock.update = () => {
 	    };
 			
 		if (EZStock.goods[id].bought > 0) {
-			let buttonsellHTML = '<div class="bankButton bankButtonSell" id="fastsell-'+id+'" >'+ 
+			let buttonsellHTML = '<div id="fastsell-'+id+'" style="border:solid" >'+ 
 			    			EZStock.formatPrice(EZStock.goods[id].profit,true)+'</div>'
 			row.querySelector('.EZStock-profit').innerHTML = buttonsellHTML;
 			AddEvent(l('fastsell-'+id),'click',function(id){return function(e){
@@ -359,7 +359,7 @@ EZStock.update = () => {
 			
 		}
 		else {
-			let buttonbuyHTML = '<div class="bankButton bankButtonBuy" id="fastbuy-'+id+'" >Buy</div>'
+			let buttonbuyHTML = '<div id="fastbuy-'+id+'" style="border:solid" >Buy</div>'
 			row.querySelector('.EZStock-profit').innerHTML = buttonbuyHTML;
 			AddEvent(l('fastbuy-'+id),'click',function(id){return function(e){
 				if (EZStock.bank.minigame.buyGood(id,10000)) Game.SparkleOn(e.target);
