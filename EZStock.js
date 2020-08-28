@@ -342,6 +342,10 @@ EZStock.update = () => {
 		EZStock.updateProgressBar(good,id,row);
         row.querySelector('.EZStock-low').innerHTML = EZStock.formatPrice(EZStock.goods[id].lowval, false);
         row.querySelector('.EZStock-high').innerHTML = EZStock.formatPrice(EZStock.goods[id].highval, false);
+	    let buy = (bought) => {
+		EZStock.goods[id].bought = bought;
+		EZStock.goods[id].value = bought == 0 ? 0 : good.val;
+	    };
 			
 		if (EZStock.goods[id].bought > 0) {
 			let buttonsellHTML = '<div style="width:28px;" class="bankButton bankButtonSell" id="fastsell-'+id+'" >'+ 
