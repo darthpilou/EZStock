@@ -302,7 +302,7 @@ EZStock.updateDisplay = (good,id) => {
 		color1 = "rgb(" + red.toFixed(0) + "," + green.toFixed(0)  + ", 0)";
 		if(range<30 || opac<0.1)
 			opac=0.1;
-		if(ratio < 0.2 && range>30) {
+		if(ratio < 0.25 && range>30) {
 			rowback = "#3333FF"; 
 			let buttonbuyHTML = '<div id="fastbuy-'+id+'" style="border:solid 1px" >Buy</div>'
 			profitHTML = buttonbuyHTML;
@@ -320,11 +320,11 @@ EZStock.updateDisplay = (good,id) => {
 	else {
 		opac = 0.3;
 		color2 = "#405068";
-		profitHTML = EZStock.formatPrice(curgood.profit,true);
 		if(curgood.value>good.val) {
 			width1 = (curgood.value-curgood.lowval)/range*100;
 			width2 = (good.val-curgood.lowval)/(curgood.value-curgood.lowval)*100;
 			color1 = "#f21e3c";
+			profitHTML = EZStock.formatPrice(curgood.profit,true);
 		}
 		else {
 			opac = 0.5;
@@ -334,6 +334,7 @@ EZStock.updateDisplay = (good,id) => {
 			if (curgood.profit > 25000) {
 				opac = 1;
 				rowback = "#9933FF";
+			}
 			let buttonsellHTML = '<div id="fastsell-'+id+'" style="border:solid 1px; width:24px;" >'+ 
 							EZStock.formatPrice(curgood.profit,true)+'</div>'
 			profitHTML = buttonsellHTML;
@@ -343,7 +344,6 @@ EZStock.updateDisplay = (good,id) => {
 			l('fastsell-'+id).addEventListener('click', () => {
 						buy('All' > good.stock ? 'All' : good.stock);
 					});
-			}
 		}
 	}
 	
