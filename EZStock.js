@@ -255,30 +255,43 @@ EZStock.formatPrice = (val, colored) => {
     return `<span style="${style}">${money}</span>`;
 };
 
-EZStock.updateProgressBar = (good,id,row) => {
-	let range = EZStock.goods[id].highval-EZStock.goods[id].lowval;
+EZStock.updateDisplay = (good,id) => {
+	let row = document.getElementById('EZStockTable').querySelector(`#EZStock-${id}`);
+	let low = row.querySelector('.EZStock-low');
+	let high = row.querySelector('.EZStock-high');
+	let progress = row.querySelector('.EZStock-progress');
+	let bar1 = row.querySelector('.EZStock-bar1');
+	let bar2 = row.querySelector('.EZStock-bar2');
+	let profit = row.querySelector('.EZStock-profit');
+
+	let curgood = EZStock.goods[id];
+	let range = curgood.highval-curgood.lowval;
+	let ratio = (good.val-curgood.lowval)/(curgood.highval-curgood.lowval);
+
 	let width1 = 0;
 	let width2 = 0;
 	let color1 = "";
 	let color2 = "";
 	let colorprog = "transparent";
-	let progress = row.querySelector('.EZStock-progress');
-	let bar1 = row.querySelector('.EZStock-bar1');
-	let bar2 = row.querySelector('.EZStock-bar2');
 	let alignleft = "&nbsp;&nbsp;&nbsp;";
 	let alignright = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	let offset = "";
-       	let ratio = (good.val-EZStock.goods[id].lowval)/(EZStock.goods[id].highval-EZStock.goods[id].lowval);
-        let opac= 0.1;
+	let opac= 0.1;
 	let rowback = "transparent";
+	let profitHTML = "";
+
+	let buy = (b) => {
+		curgood.bought = b;
+		curgood.value = b == 0 ? 0 : good.val;
+	};
 
 	if(ratio < 0.5) 
 		offset = alignright;
 	else
 		offset = alignleft;
 	
-	if (EZStock.goods[id].bought==0) {
-		width1 = (good.val-EZStock.goods[id].lowval)/range*100;
+	if (curgood.bought==0) {
+		width1 = (good.val-curgood.lowval)/range*100;
 		width2 = 100-500/(width1+0.001);
 		color2 = "#0f141a";
 		colorprog = "#405068";
@@ -289,25 +302,47 @@ EZStock.updateProgressBar = (good,id,row) => {
 		color1 = "rgb(" + red.toFixed(0) + "," + green.toFixed(0)  + ", 0)";
 		if(range<30 || opac<0.1)
 			opac=0.1;
-		if(ratio < 0.2 && range>30)
+		if(ratio < 0.2 && range>30) {
 			rowback = "#3333FF"; 
+			let buttonbuyHTML = '<div id="fastbuy-'+id+'" style="border:solid 1px" >Buy</div>'
+			profitHTML = buttonbuyHTML;
+			AddEvent(l('fastbuy-'+id),'click',function(id){return function(e){
+				if (EZStock.bank.minigame.buyGood(id,10000)) Game.SparkleOn(e.target);
+			}}(id));			
+			l('fastbuy-'+id).addEventListener('click', () => {
+						buy('-Max' > good.stock ? '-Max' : good.stock);
+					});
+		}
+		else
+			profitHTML = "";
+			
 	}
 	else {
 		opac = 0.3;
 		color2 = "#405068";
-		if(EZStock.goods[id].value>good.val) {
-			width1 = (EZStock.goods[id].value-EZStock.goods[id].lowval)/range*100;
-			width2 = (good.val-EZStock.goods[id].lowval)/(EZStock.goods[id].value-EZStock.goods[id].lowval)*100;
+		profitHTML = EZStock.formatPrice(curgood.profit,true);
+		if(curgood.value>good.val) {
+			width1 = (curgood.value-curgood.lowval)/range*100;
+			width2 = (good.val-curgood.lowval)/(curgood.value-curgood.lowval)*100;
 			color1 = "#f21e3c";
 		}
 		else {
 			opac = 0.5;
-			width1 = (good.val-EZStock.goods[id].lowval)/range*100;
-			width2 = (EZStock.goods[id].value-EZStock.goods[id].lowval)/(good.val-EZStock.goods[id].lowval)*100;
+			width1 = (good.val-curgood.lowval)/range*100;
+			width2 = (curgood.value-curgood.lowval)/(good.val-curgood.lowval)*100;
 			color1 = "#73f21e";
-			if (EZStock.goods[id].profit > 25000) {
+			if (curgood.profit > 25000) {
 				opac = 1;
 				rowback = "#9933FF";
+			let buttonsellHTML = '<div id="fastsell-'+id+'" style="border:solid 1px; width:24px;" >'+ 
+							EZStock.formatPrice(curgood.profit,true)+'</div>'
+			profitHTML = buttonsellHTML;
+			AddEvent(l('fastsell-'+id),'click',function(id){return function(e){
+				if (EZStock.bank.minigame.sellGood(id,10000)) Game.SparkleOn(e.target);
+			}}(id));
+			l('fastsell-'+id).addEventListener('click', () => {
+						buy('All' > good.stock ? 'All' : good.stock);
+					});
 			}
 		}
 	}
@@ -320,15 +355,15 @@ EZStock.updateProgressBar = (good,id,row) => {
 	bar2.style.width = width2.toFixed(0) + "%";	
 	bar2.style.background = color2;	
 	bar2.innerHTML = offset + EZStock.formatPrice(good.val,false);
+	low.innerHTML = EZStock.formatPrice(curgood.lowval, false);
+	high.innerHTML = EZStock.formatPrice(curgood.highval, false);
+	profit.innerHTML = profitHTML;
 };
 
 EZStock.update = () => {
     if (EZStock.bank.amount == 0)
         EZStock.initializeGoods();
-
-    let table = document.getElementById('EZStockTable');
-
-    EZStock.minigameGoods.map((good, id) => {
+		EZStock.minigameGoods.map((good, id) => {
         let bought = EZStock.goods[id].bought;
         if (good.stock == 0)
             EZStock.goods[id].bought = 0;
@@ -336,38 +371,7 @@ EZStock.update = () => {
         EZStock.goods[id].lowval = good.val < EZStock.goods[id].lowval ? good.val : EZStock.goods[id].lowval;
         EZStock.goods[id].highval = good.val > EZStock.goods[id].highval ? good.val : EZStock.goods[id].highval;
 
-        let row = table.querySelector(`#EZStock-${id}`);
-	    
-		EZStock.updateProgressBar(good,id,row);
-        row.querySelector('.EZStock-low').innerHTML = EZStock.formatPrice(EZStock.goods[id].lowval, false);
-        row.querySelector('.EZStock-high').innerHTML = EZStock.formatPrice(EZStock.goods[id].highval, false);
-	    let buy = (bought) => {
-		EZStock.goods[id].bought = bought;
-		EZStock.goods[id].value = bought == 0 ? 0 : good.val;
-	    };
-			
-		if (EZStock.goods[id].bought > 0) {
-			let buttonsellHTML = '<div id="fastsell-'+id+'" style="border:solid 1px; width:24px;" >'+ 
-			    			EZStock.formatPrice(EZStock.goods[id].profit,true)+'</div>'
-			row.querySelector('.EZStock-profit').innerHTML = buttonsellHTML;
-			AddEvent(l('fastsell-'+id),'click',function(id){return function(e){
-				if (EZStock.bank.minigame.sellGood(id,10000)) Game.SparkleOn(e.target);
-			}}(id));
-			l('fastsell-'+id).addEventListener('click', () => {
-                		buy('All' > good.stock ? 'All' : good.stock);
-            		});
-			
-		}
-		else {
-			let buttonbuyHTML = '<div id="fastbuy-'+id+'" style="border:solid 1px" >Buy</div>'
-			row.querySelector('.EZStock-profit').innerHTML = buttonbuyHTML;
-			AddEvent(l('fastbuy-'+id),'click',function(id){return function(e){
-				if (EZStock.bank.minigame.buyGood(id,10000)) Game.SparkleOn(e.target);
-			}}(id));			
-			l('fastbuy-'+id).addEventListener('click', () => {
-                		buy('-Max' > good.stock ? '-Max' : good.stock);
-            		});
-		}
+		EZStock.updateDisplay(good,id);
     });
 
     let serialized = btoa(JSON.stringify(EZStock.goods));
