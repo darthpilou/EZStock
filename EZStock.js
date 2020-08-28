@@ -347,7 +347,7 @@ EZStock.update = () => {
 	    };
 			
 		if (EZStock.goods[id].bought > 0) {
-			let buttonsellHTML = '<div id="fastsell-'+id+'" style="border:solid 1px; width:20px;" >'+ 
+			let buttonsellHTML = '<div id="fastsell-'+id+'" style="border:solid 1px; width:24px;" >'+ 
 			    			EZStock.formatPrice(EZStock.goods[id].profit,true)+'</div>'
 			row.querySelector('.EZStock-profit').innerHTML = buttonsellHTML;
 			AddEvent(l('fastsell-'+id),'click',function(id){return function(e){
