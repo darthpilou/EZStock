@@ -346,11 +346,8 @@ EZStock.update = () => {
 			let buttonsellHTML = '<div style="width:28px;" class="bankButton bankButtonSell" id="bankGood-'+id+'_-All" >'+ 
 			    			EZStock.formatPrice(EZStock.goods[id].profit)+'£</div>'
 			row.querySelector('.EZStock-profit').innerHTML = buttonsellHTML;
-			AddEvent(l('bankGood-'+id+'_All'),'click',
-				function (id) { return function (e)  
-							{if (EZStock.bank.minigame.sellGood(id,10000)) Game.SparkleOn(e.target);}
-					    }(id)
-				);
+			console.log("return value of l(" + 'bankGood-'+id+'_All' + ") : " + l('bankGood-'+id+'_All'));
+			console.log(row.querySelector('bankGood-'+id+'_All'));
 		}
 		else {
 			let buttonbuyHTML = '<div style="width:28px;" class="bankButton bankButtonBuy" id="bankGood-'+id+'_Max" >Buy</div>'
