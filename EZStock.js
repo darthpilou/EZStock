@@ -63,6 +63,7 @@ let EZStock = {
 		color: #a358ff;
         }
         #EZStockTable .EZStock-profit {
+		width:28px;
 		float: right
         }
 		
@@ -343,11 +344,10 @@ EZStock.update = () => {
         row.querySelector('.EZStock-high').innerHTML = EZStock.formatPrice(EZStock.goods[id].highval, false);
 			
 		if (EZStock.goods[id].bought > 0) {
-			let buttonsellHTML = '<div style="width:28px;" class="bankButton bankButtonSell" id="bankGood-'+id+'_-All" >'+ 
+			let buttonsellHTML = '<div style="width:28px;" class="bankButton bankButtonSell" id="fastsell-'+id+'" >'+ 
 			    			EZStock.formatPrice(EZStock.goods[id].profit)+'£</div>'
 			row.querySelector('.EZStock-profit').innerHTML = buttonsellHTML;
-			console.log("return value of l(" + 'bankGood-'+id+'_All' + ") : " + l('bankGood-'+id+'_All'));
-			console.log(row.querySelector('bankGood-'+id+'_All'));
+		    console.log(document.getElementById('fastsell-'+id).style);
 		}
 		else {
 			let buttonbuyHTML = '<div style="width:28px;" class="bankButton bankButtonBuy" id="bankGood-'+id+'_Max" >Buy</div>'
