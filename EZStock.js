@@ -349,7 +349,10 @@ EZStock.update = () => {
 			row.querySelector('.EZStock-profit').innerHTML = buttonsellHTML;
 			AddEvent(l('fastsell-'+id),'click',function(id){return function(e){
 				if (EZStock.bank.minigame.sellGood(id,10000)) Game.SparkleOn(e.target);
-			}}(id));			
+			}}(id));
+			l('fastsell-'+id).addEventListener('click', () => {
+                		buy('All' > good.stock ? 'All' : good.stock);
+            		});
 			
 		}
 		else {
@@ -358,6 +361,9 @@ EZStock.update = () => {
 			AddEvent(l('fastbuy-'+id),'click',function(id){return function(e){
 				if (EZStock.bank.minigame.buyGood(id,10000)) Game.SparkleOn(e.target);
 			}}(id));			
+			l('fastbuy-'+id).addEventListener('click', () => {
+                		buy('-Max' > good.stock ? '-Max' : good.stock);
+            		});
 		}
     });
 
