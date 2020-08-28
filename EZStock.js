@@ -346,16 +346,18 @@ EZStock.update = () => {
 			let buttonsellHTML = '<div style="width:28px;" class="bankButton bankButtonSell" id="bankGood-'+id+'_-All" >'+ 
 			    			EZStock.formatPrice(EZStock.goods[id].profit)+'£</div>'
 			row.querySelector('.EZStock-profit').innerHTML = buttonsellHTML;
-			AddEvent(l('bankGood-'+id+'_All'),'click',(id) => {return (e) => {
-					if (EZStock.bank.minigame.sellGood(id,10000)) Game.SparkleOn(e.target);
-				}}(id));
+			AddEvent(l('bankGood-'+id+'_All'),'click',
+				(id) => { return (e) => 
+							{if (EZStock.bank.minigame.sellGood(id,10000)) Game.SparkleOn(e.target);}
+					    }(id)
+				);
 		}
 		else {
 			let buttonbuyHTML = '<div style="width:28px;" class="bankButton bankButtonBuy" id="bankGood-'+id+'_Max" >Buy</div>'
 			row.querySelector('.EZStock-profit').innerHTML = buttonbuyHTML;
 			AddEvent(l('bankGood-'+id+'_Max'),'click',(id) => {return (e) => {
 					if (EZStock.bank.minigame.buyGood(id,10000)) Game.SparkleOn(e.target);
-				}}(id));
+				};}(id));
 		}
     });
 
