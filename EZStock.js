@@ -277,20 +277,13 @@ EZStock.updateDisplay = (good,id) => {
 	let color1 = "";
 	let color2 = "";
 	let colorprog = "transparent";
-	let alignleft = "&nbsp;&nbsp;&nbsp;";
-	let alignright = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	let alignleft = "&nbsp;&nbsp;&nbsp;&nbsp;";
+	let alignright = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	let offset = "";
 	let opac= 0.1;
 	let rowback = "transparent";
 	let profitHTML = "";
 	let dirchar = curgood.up == true ? "►" : "◄";
-	let direction = "";
-	if ( curgood.streak > 2 )
-		direction = dirchar + dirchar + dirchar;
-	else if (curgood.streak > 1 )
-		direction = dirchar + dirchar;
-	else
-		direction = "&nbsp;" + dirchar;
 
 	let buy = (b) => {
 		curgood.bought = b;
@@ -356,7 +349,7 @@ EZStock.updateDisplay = (good,id) => {
 	bar1.style.background = color1;	
 	bar2.style.width = width2.toFixed(0) + "%";	
 	bar2.style.background = color2;	
-	bar2.innerHTML = offset + direction;
+	bar2.innerHTML = offset + dirchar;
 	low.innerHTML = EZStock.formatPrice(curgood.lowval, false);
 	high.innerHTML = EZStock.formatPrice(curgood.highval, false);
 	profit.innerHTML = profitHTML;
