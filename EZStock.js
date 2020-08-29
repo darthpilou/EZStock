@@ -278,7 +278,7 @@ EZStock.updateDisplay = (good,id) => {
 	let color2 = "";
 	let colorprog = "transparent";
 	let alignleft = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	let alignright = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	let alignright = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	let offset = "";
 	let opac= 0.1;
 	let rowback = "transparent";
@@ -309,7 +309,7 @@ EZStock.updateDisplay = (good,id) => {
 			opac=0.1;
 		if(ratio < 0.25 && range>30) {
 			rowback = "#3333FF"; 
-			if( EZStock.automate == true) {
+			if( EZStock.automate == true && curgood.up == true && curgood.streak >1) {
 				let _id = 'bankGood-'+ id +'_Max';
 				document.getElementById(_id).click();
 					console.log("Bought " + curgood.name + " for " + good.val);
@@ -333,7 +333,7 @@ EZStock.updateDisplay = (good,id) => {
 			if (ratio > 0.5) {
 				opac = 1;
 				rowback = "#9933FF";
-				if( EZStock.automate == true) {
+				if( EZStock.automate == true && curgood.up == false && curgood.streak >2) {
 					let _id = 'bankGood-'+ id +'_-All';
 					document.getElementById(_id).click();
 						console.log("Sold " + EZStock.goods[id].name + " for " + good.val);
