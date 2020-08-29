@@ -286,8 +286,8 @@ EZStock.updateDisplay = (good,id) => {
 	let down = "◄";
 	let up =  "►";
 	if ( curgood.streak > 1) {
-		down = down + down + curgoodstreak > 2 ? down : "";
-		up = up + up + curgoodstreak > 2 ? up : "";
+		down = down + down + curgood.streak > 2 ? down : "";
+		up = up + up + curgood.streak > 2 ? up : "";
 	}
 
 	let buy = (b) => {
