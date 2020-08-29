@@ -394,6 +394,21 @@ EZStock.update = () => {
     EZStock.setCookie('EZStock_Data', serialized);
 }
 
+EZStock.resetThresholds = () => {
+	EZStock.minigameGoods.map((good, id) => {
+		if ( EZStock.goods[id].value > 0.01 ) {
+			let newlow = Math.max(EZStock.goods[id].lowval,Math.min(EZStock.goods[id].value,good.val)-10);
+			let newhigh = Math.min(EZStock.goods[id].highval,Math.max(EZStock.goods[id].value,good.val)+10);
+		}
+		else {
+			let newlow = Math.max(EZStock.goods[id].lowval,good.val-10);
+			let newhigh = Math.min(EZStock.goods[id].highval,good.val+10);
+		}
+		EZStock.goods[id].lowval = newlow;
+		EZStock.goods[id].highval = newhigh;
+	});
+}
+
 EZStock.initializeGoods();
 
 EZStock.minigameGoods.map((good, id) => {
