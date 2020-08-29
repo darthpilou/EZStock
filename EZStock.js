@@ -201,15 +201,15 @@ document.getElementById('sectionMiddle')
 EZStock.initializeGoods = () => {
     EZStock.minigameGoods.map((good, id) => {
         EZStock.goods[id] = {
-            name: good.name,
-            lowval: 1000,
-            highval: 0,
-			previous: 0,
-			up: false,
-			streak: 1;
-            bought: 0,
-            value: 0,
-            profit: 0,
+		name: good.name,
+		lowval: 1000,
+		highval: 0,
+		previous: 0,
+		up: false,
+		streak: 1,
+		bought: 0,
+		value: 0,
+		profit: 0,
         };
     });
 };
