@@ -22,7 +22,7 @@ let EZStock = {
     },
     saveData: {},
     bank: {},
-    testbutton: false
+    testbutton: false,
     minigameGoods: {},
     goods: {},
     initializeGoods: {},
