@@ -366,7 +366,7 @@ EZStock.update = () => {
         EZStock.goods[id].highval = good.val > EZStock.goods[id].highval ? good.val : EZStock.goods[id].highval;
 		let thisgood = EZStock.goods[id];
 		let cur = Math.round(parseFloat(good.val)*100);
-		if( Math.Abs(thisgood.previous-cur)>1) {
+		if( Math.abs(thisgood.previous-cur)>1) {
 			if(thisgood.previous > cur) {
 				if(thisgood.up == true)
 					thisgood.streak = 1;
