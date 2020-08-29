@@ -304,7 +304,7 @@ EZStock.updateDisplay = (good,id) => {
 	
 	if (curgood.bought==0) {
 		width1 = (good.val-curgood.lowval)/range*100;
-		width2 = 100-500/(width1+0.001);
+		width2 = 100-300/(width1+0.001);
 		color2 = "#0f141a";
 		colorprog = "#405068";
 		
