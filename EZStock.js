@@ -313,7 +313,9 @@ EZStock.updateDisplay = (good,id) => {
 				let _id = 'bankGood-'+ id +'_Max';
 				document.getElementById(_id).click();
 				curgood.bought=good.stock;
-				console.log("Bought " + curgood.name + " for " + good.val);
+				let today = new Date();
+				let time = today.getHours() + ":" + today.getMinutes();
+				console.log(time + " bought " + curgood.name + " for " + good.val);
 			}
 		}
 	}
@@ -338,7 +340,9 @@ EZStock.updateDisplay = (good,id) => {
 					let _id = 'bankGood-'+ id +'_-All';
 					document.getElementById(_id).click();
 					curgood.bought=0;
-					console.log("Sold " + EZStock.goods[id].name + " for " + good.val);
+					let today = new Date();
+					let time = today.getHours() + ":" + today.getMinutes();
+					console.log(time + " sold " + EZStock.goods[id].name + " for " + good.val);
 				}
 			}
 		}
