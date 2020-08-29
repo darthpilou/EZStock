@@ -22,6 +22,7 @@ let EZStock = {
     },
     saveData: {},
     bank: {},
+    testbutton: false;
     minigameGoods: {},
     goods: {},
     initializeGoods: {},
@@ -340,6 +341,12 @@ EZStock.updateDisplay = (good,id) => {
 };
 
 EZStock.update = () => {
+    if (EZStock.testbutton == true) {
+    	    console.log("testing automated click");
+	    ZStock.testbutton = false;
+	    let _id = 'bankGood-1_Max';
+	    document.getElementById(_id).click();
+    }
     if (EZStock.bank.amount == 0)
         EZStock.initializeGoods();
 		EZStock.minigameGoods.map((good, id) => {
