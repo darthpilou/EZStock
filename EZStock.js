@@ -343,7 +343,7 @@ EZStock.updateDisplay = (good,id) => {
 EZStock.update = () => {
     if (EZStock.testbutton == true) {
     	    console.log("testing automated click");
-	    ZStock.testbutton = false;
+	    EZStock.testbutton = false;
 	    let _id = 'bankGood-1_Max';
 	    document.getElementById(_id).click();
     }
