@@ -285,10 +285,12 @@ EZStock.updateDisplay = (good,id) => {
 	let profitHTML = "";
 	let dirchar = curgood.up == true ? "►" : "◄";
 	let direction = "";
-	if ( curgood.streak > 1)
-		direction = dirchar + dirchar + curgood.streak > 2 ? dirchar : "";
+	if ( curgood.streak > 2 )
+		direction = dirchar + dirchar + dirchar;
+	else if (curgood.streak > 1 )
+		direction = dirchar + dirchar;
 	else
-		direction = "&nbsp;" + dirchar ;
+		direction = "&nbsp;" + dirchar;
 
 	let buy = (b) => {
 		curgood.bought = b;
