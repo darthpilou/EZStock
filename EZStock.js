@@ -312,7 +312,8 @@ EZStock.updateDisplay = (good,id) => {
 			if( EZStock.automate == true && curgood.up == true && curgood.streak >1) {
 				let _id = 'bankGood-'+ id +'_Max';
 				document.getElementById(_id).click();
-					console.log("Bought " + curgood.name + " for " + good.val);
+				curgood.bought=good.stock;
+				console.log("Bought " + curgood.name + " for " + good.val);
 			}
 		}
 	}
@@ -336,7 +337,8 @@ EZStock.updateDisplay = (good,id) => {
 				if( EZStock.automate == true && curgood.up == false && curgood.streak >2) {
 					let _id = 'bankGood-'+ id +'_-All';
 					document.getElementById(_id).click();
-						console.log("Sold " + EZStock.goods[id].name + " for " + good.val);
+					curgood.bought=0;
+					console.log("Sold " + EZStock.goods[id].name + " for " + good.val);
 				}
 			}
 		}
