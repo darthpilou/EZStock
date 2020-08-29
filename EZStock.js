@@ -277,8 +277,8 @@ EZStock.updateDisplay = (good,id) => {
 	let color1 = "";
 	let color2 = "";
 	let colorprog = "transparent";
-	let alignleft = "&nbsp;&nbsp;&nbsp;";
-	let alignright = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	let alignleft = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	let alignright = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	let offset = "";
 	let opac= 0.1;
 	let rowback = "transparent";
