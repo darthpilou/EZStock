@@ -371,17 +371,17 @@ EZStock.update = () => {
 				if(thisgood.up == true)
 					thisgood.streak = 1;
 				else
-					thisgood.sreak++;
+					thisgood.streak++;
 				thisgood.up = false;
-				console.log(thisgood.name + " going down for " + thisgood.sreak + " time");
+				console.log(thisgood.name + " going down for " + thisgood.streak + " time");
 			}
 			else {
 				if(thisgood.up == false)
 					thisgood.streak = 1;
 				else
-					thisgood.sreak++;
+					thisgood.streak++;
 				thisgood.up = true;
-				console.log(thisgood.name + " going up for " + thisgood.sreak + " time");
+				console.log(thisgood.name + " going up for " + thisgood.streak + " time");
 			}
 			thisgood.previous = cur;
 		}
