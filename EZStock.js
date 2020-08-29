@@ -311,7 +311,7 @@ EZStock.updateDisplay = (good,id) => {
 			if( EZStock.automate == true) {
 				let _id = 'bankGood-'+ id +'_Max';
 				document.getElementById(_id).click();
-					console.log("Bought " + EZStock.goods[id].name + " for " + good.val);
+					console.log("Bought " + curgood.name + " for " + good.val);
 			}
 		}
 	}
@@ -348,7 +348,7 @@ EZStock.updateDisplay = (good,id) => {
 	bar1.style.background = color1;	
 	bar2.style.width = width2.toFixed(0) + "%";	
 	bar2.style.background = color2;	
-	bar2.innerHTML = offset + EZStock.formatPrice(good.val,false);
+	bar2.innerHTML = offset + (curgood.up == true ? "": "◄") + EZStock.formatPrice(good.val,false) + (curgood.up == true ? "►": "");
 	low.innerHTML = EZStock.formatPrice(curgood.lowval, false);
 	high.innerHTML = EZStock.formatPrice(curgood.highval, false);
 	profit.innerHTML = profitHTML;
@@ -373,7 +373,6 @@ EZStock.update = () => {
 				else
 					thisgood.streak++;
 				thisgood.up = false;
-				console.log(thisgood.name + " going down for " + thisgood.streak + " time");
 			}
 			else {
 				if(thisgood.up == false)
@@ -381,7 +380,6 @@ EZStock.update = () => {
 				else
 					thisgood.streak++;
 				thisgood.up = true;
-				console.log(thisgood.name + " going up for " + thisgood.streak + " time");
 			}
 			thisgood.previous = cur;
 		}
