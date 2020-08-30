@@ -204,8 +204,7 @@ EZStock.initializeGoods = () => {
 		name: good.name,
 		lowval: 1000,
 		highval: 0,
-		previous: 0,
-		up: false,
+		delta: 0,
 		streak: 1,
 		bought: 0,
 		value: 0,
@@ -267,11 +266,6 @@ EZStock.updateDisplay = (good,id) => {
 	let bar1 = row.querySelector('.EZStock-bar1');
 	let bar2 = row.querySelector('.EZStock-bar2');
 	let profit = row.querySelector('.EZStock-profit');
-
-	let curgood = EZStock.goods[id];
-	let range = curgood.highval-curgood.lowval;
-	let ratio = (good.val-curgood.lowval)/(curgood.highval-curgood.lowval);
-
 	let width1 = 0;
 	let width2 = 0;
 	let color1 = "";
@@ -283,12 +277,12 @@ EZStock.updateDisplay = (good,id) => {
 	let opac= 0.1;
 	let rowback = "transparent";
 	let profitHTML = "";
-	let dirchar = curgood.up == true ? "►" : "◄";
+	let curgood = EZStock.goods[id];
+	let range = curgood.highval-curgood.lowval;
+	let delta = good.val-curgood.value;
+	let ratio = (good.val-curgood.lowval)/range;
 
-	let buy = (b) => {
-		curgood.bought = b;
-		curgood.value = b == 0 ? 0 : good.val;
-	};
+	let dirchar = curgood.delta > 0 ? "►" : "◄";
 
 	if(ratio < 0.5) 
 		offset = alignright;
@@ -296,7 +290,7 @@ EZStock.updateDisplay = (good,id) => {
 		offset = alignleft;
 	
 	if (curgood.bought==0) {
-		width1 = (good.val-curgood.lowval)/range*100;
+		width1 = ratio*100;
 		width2 = 100-300/(width1+0.001);
 		color2 = "#0f141a";
 		colorprog = "#405068";
@@ -309,21 +303,13 @@ EZStock.updateDisplay = (good,id) => {
 			opac=0.1;
 		if(ratio < 0.25 && range>30) {
 			rowback = "#3333FF"; 
-			if( EZStock.automate == true && curgood.up == true && curgood.streak >1) {
-				let _id = 'bankGood-'+ id +'_Max';
-				document.getElementById(_id).click();
-				curgood.bought=good.stock;
-				let today = new Date();
-				let time = today.getHours() + ":" + today.getMinutes();
-				console.log(time + " bought " + curgood.name + " for " + good.val);
-			}
 		}
 	}
 	else {
 		opac = 0.3;
 		color2 = "#405068";
 		profitHTML = EZStock.formatPrice(curgood.profit,true);
-		if(curgood.value>good.val) {
+		if(delta <0) {
 			width1 = (curgood.value-curgood.lowval)/range*100;
 			width2 = (good.val-curgood.lowval)/(curgood.value-curgood.lowval)*100;
 			color1 = "#f21e3c";
@@ -333,17 +319,9 @@ EZStock.updateDisplay = (good,id) => {
 			width1 = (good.val-curgood.lowval)/range*100;
 			width2 = (curgood.value-curgood.lowval)/(good.val-curgood.lowval)*100;
 			color1 = "#73f21e";
-			if (ratio > 0.5) {
+			if (delta/range > 0.25) {
 				opac = 1;
 				rowback = "#9933FF";
-				if( EZStock.automate == true && curgood.up == false && curgood.streak >2) {
-					let _id = 'bankGood-'+ id +'_-All';
-					document.getElementById(_id).click();
-					curgood.bought=0;
-					let today = new Date();
-					let time = today.getHours() + ":" + today.getMinutes();
-					console.log(time + " sold " + EZStock.goods[id].name + " for " + good.val);
-				}
 			}
 		}
 	}
@@ -356,42 +334,89 @@ EZStock.updateDisplay = (good,id) => {
 	bar2.style.width = width2.toFixed(0) + "%";	
 	bar2.style.background = color2;	
 	bar2.innerHTML = offset + dirchar;
-	low.innerHTML = EZStock.formatPrice(curgood.lowval, false);
-	high.innerHTML = EZStock.formatPrice(curgood.highval, false);
+	low.innerHTML = EZStock.formatPrice(EZStock.goods[id].lowval, false);
+	high.innerHTML = EZStock.formatPrice(EZStock.goods[id].highval, false);
 	profit.innerHTML = profitHTML;
 };
+
+EZStock.automated = (good,id) => {
+	let curgood = EZStock.goods[id];
+	let range = curgood.highval-curgood.lowval;
+	let deltaval = good.val-curgood.value;
+	let ratio = good.val-curgood.lowval/range;
+
+	let buy = (b) => {
+		EZStock.goods[id].bought = b;
+		EZStock.goods[id].value = b == 0 ? 0 : good.val;
+	};
+
+	if (curgood.bought==0) {
+		let buygood = false; 
+		if(range>30) {
+			if ( Math.abs(good.val-curgood.lowval) <0.01 )
+				buygood = true;
+			if(curgood.delta > 0) {
+				if (ratio < 0.1)
+					buygood =true;
+				if (ratio < 0.25 && (EZStock.goods[id].streak >1 || curgood.delta > 0.05 ))
+					buygood =true;
+			}
+		}
+		if (buygood == true) {
+			let _id = 'bankGood-'+ id +'_Max';
+			document.getElementById(_id).click();
+			let today = new Date();
+			let time = today.getHours() + ":" + today.getMinutes();
+			console.log(time + " bought " + EZStock.goods[id].name + " for " + good.val.toFixed(2).toString());
+			buy(good.stock);
+		}
+	}
+	else {
+		if(deltaval > 0) {
+			let sellgood = false;
+			if ( deltaval/range > 0.7)
+				sellgood = true;
+			if(curgood.delta < 0) {
+				if (deltaval/range > 0.55)
+					sellgood =true;
+				if (deltaval/range > 0.40 &&  (EZStock.goods[id].streak >1 || curgood.delta < -0.005))
+					sellgood =true;
+				if (deltaval/range > 0.25 &&  (EZStock.goods[id].streak >2 || curgood.delta < -0.01))
+					sellgood =true;
+			}
+			if (sellgood == true) {
+				let _id = 'bankGood-'+ id +'_-All';
+				document.getElementById(_id).click();
+				let today = new Date();
+				let time = today.getHours() + ":" + today.getMinutes();
+				let profit = curgood.profit/1000; 
+				console.log(time + " sold " + curgood.name + " for " + good.val.toFixed(2).toString() + " profit:" + profit.toFixed(0).toString() + "k");
+				buy(0);
+			}
+		}
+	}	
+	
+}
 
 EZStock.update = () => {
     if (EZStock.bank.amount == 0)
         EZStock.initializeGoods();
-		EZStock.minigameGoods.map((good, id) => {
+	EZStock.minigameGoods.map((good, id) => {
         let bought = EZStock.goods[id].bought;
         if (good.stock == 0)
             EZStock.goods[id].bought = 0;
         EZStock.goods[id].profit = (good.val * bought) - (EZStock.goods[id].value * bought);
         EZStock.goods[id].lowval = good.val < EZStock.goods[id].lowval ? good.val : EZStock.goods[id].lowval;
         EZStock.goods[id].highval = good.val > EZStock.goods[id].highval ? good.val : EZStock.goods[id].highval;
-		let thisgood = EZStock.goods[id];
-		let cur = Math.round(parseFloat(good.val)*100);
-		if( Math.abs(thisgood.previous-cur)>1) {
-			if(thisgood.previous > cur) {
-				if(thisgood.up == true)
-					thisgood.streak = 1;
-				else
-					thisgood.streak++;
-				thisgood.up = false;
-			}
-			else {
-				if(thisgood.up == false)
-					thisgood.streak = 1;
-				else
-					thisgood.streak++;
-				thisgood.up = true;
-			}
-			thisgood.previous = cur;
-		}
+	if(EZStock.goods[id].delta*EZStock.bank.minigame.goodDelta(id) >= 0)
+		EZStock.goods[id].streak++;
+	else
+		EZStock.goods[id].streak = 1;
+	EZStock.goods[id].delta = EZStock.bank.minigame.goodDelta(id);
 
-		EZStock.updateDisplay(good,id);
+	if (EZStock.automate == true )
+		EZStock.automated(good,id);
+	EZStock.updateDisplay(good,id);
     });
 
     let serialized = btoa(JSON.stringify(EZStock.goods));
