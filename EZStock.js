@@ -379,7 +379,9 @@ EZStock.automated = (good,id) => {
 			if (good.val > Game.Objects['Bank'].level-1)
 				sellgood = true;
 			if(curgood.delta < 0) {
-				if (curgood.streak >2 || curgood.delta < -10)
+				if (good.val>((Game.Objects['Bank'].level-1)-curgood.value)*0.8+curgood.value && (curgood.streak >1 || curgood.delta < -5))
+					sellgood =true;
+				if (good.val>((Game.Objects['Bank'].level-1)-curgood.value)*0.6+curgood.value && (curgood.streak >2 || curgood.delta < -10))
 					sellgood =true;
 			}
 			if (sellgood == true) {
