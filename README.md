@@ -25,7 +25,7 @@ To install with TamperMonkey, use the following:
 var code = "(" + (function() {
     var checkReady = setInterval(function() {
         if (typeof Game.ready !== 'undefined' && Game.ready) {
-            Game.LoadMod('https://darthpilou.github.io/cctest/cctest.js');
+            Game.LoadMod('https://darthpilou.github.io/EZStock/EZStock.js');
             clearInterval(checkReady);
         }
     }, 1000);
@@ -40,7 +40,7 @@ Or paste the following into the url field for a bookmark.
 ```javascript
 {
 javascript:(function() {
-    Game.LoadMod('https://darthpilou.github.io/cctest/cctest.js');
+    Game.LoadMod('https://darthpilou.github.io/EZStock/EZStock.js');
 }());
 }
 ```
