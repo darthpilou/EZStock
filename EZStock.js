@@ -1,3 +1,5 @@
+// this mod is heavily based on a mod by Silentclowd found here: https://github.com/Nyhilo/KookieStocks
+
 let EZStock = {
     setCookie: (cname, cvalue, exdays) => {
         var d = new Date();
@@ -279,7 +281,6 @@ EZStock.updateDisplay = (good,id) => {
 	let profitHTML = "";
 	let curgood = EZStock.goods[id];
 	let range = curgood.highval-curgood.lowval;
-	let delta = good.val-curgood.value;
 	let ratio = (good.val-curgood.lowval)/range;
 
 	let dirchar = curgood.delta > 0 ? "►" : "◄";
@@ -303,13 +304,15 @@ EZStock.updateDisplay = (good,id) => {
 			opac=0.1;
 		if(ratio < 0.25 && range>30) {
 			rowback = "#3333FF"; 
+			if(ratio < 0.1)
+				rowback = "#6666FF"; 
 		}
 	}
 	else {
 		opac = 0.3;
 		color2 = "#405068";
 		profitHTML = EZStock.formatPrice(curgood.profit,true);
-		if(delta <0) {
+		if(good.val-curgood.value <0) {
 			width1 = (curgood.value-curgood.lowval)/range*100;
 			width2 = (good.val-curgood.lowval)/(curgood.value-curgood.lowval)*100;
 			color1 = "#f21e3c";
@@ -319,7 +322,7 @@ EZStock.updateDisplay = (good,id) => {
 			width1 = (good.val-curgood.lowval)/range*100;
 			width2 = (curgood.value-curgood.lowval)/(good.val-curgood.lowval)*100;
 			color1 = "#73f21e";
-			if (delta/range > 0.25) {
+			if (good.val > (10*(id+1)+Game.Objects['Bank'].level-1) && good.val > curgood.value) {
 				opac = 1;
 				rowback = "#9933FF";
 			}
@@ -342,8 +345,7 @@ EZStock.updateDisplay = (good,id) => {
 EZStock.automated = (good,id) => {
 	let curgood = EZStock.goods[id];
 	let range = curgood.highval-curgood.lowval;
-	let deltaval = good.val-curgood.value;
-	let ratio = good.val-curgood.lowval/range;
+	let ratio = (good.val-curgood.lowval)/range;
 
 	let buy = (b) => {
 		EZStock.goods[id].bought = b;
@@ -351,46 +353,42 @@ EZStock.automated = (good,id) => {
 	};
 
 	if (curgood.bought==0) {
-		let buygood = false; 
+		let buygood = false;
 		if(range>30) {
 			if ( Math.abs(good.val-curgood.lowval) <0.01 )
 				buygood = true;
 			if(curgood.delta > 0) {
 				if (ratio < 0.1)
 					buygood =true;
-				if (ratio < 0.25 && (EZStock.goods[id].streak >1 || curgood.delta > 0.05 ))
+				if (ratio < 0.25 && (curgood.streak >1 || curgood.delta > 5 ))
 					buygood =true;
 			}
 		}
 		if (buygood == true) {
-			let _id = 'bankGood-'+ id +'_Max';
-			document.getElementById(_id).click();
 			let today = new Date();
 			let time = today.getHours() + ":" + today.getMinutes();
 			console.log(time + " bought " + EZStock.goods[id].name + " for " + good.val.toFixed(2).toString());
+			let _id = 'bankGood-'+ id +'_Max';
+			document.getElementById(_id).click();
 			buy(good.stock);
 		}
 	}
 	else {
-		if(deltaval > 0) {
+		if(good.val-curgood.value > 0) {
 			let sellgood = false;
-			if ( deltaval/range > 0.7)
+			if (good.val > Game.Objects['Bank'].level-1)
 				sellgood = true;
 			if(curgood.delta < 0) {
-				if (deltaval/range > 0.55)
-					sellgood =true;
-				if (deltaval/range > 0.40 &&  (EZStock.goods[id].streak >1 || curgood.delta < -0.005))
-					sellgood =true;
-				if (deltaval/range > 0.25 &&  (EZStock.goods[id].streak >2 || curgood.delta < -0.01))
+				if (curgood.streak >2 || curgood.delta < -10)
 					sellgood =true;
 			}
 			if (sellgood == true) {
-				let _id = 'bankGood-'+ id +'_-All';
-				document.getElementById(_id).click();
 				let today = new Date();
 				let time = today.getHours() + ":" + today.getMinutes();
 				let profit = curgood.profit/1000; 
 				console.log(time + " sold " + curgood.name + " for " + good.val.toFixed(2).toString() + " profit:" + profit.toFixed(0).toString() + "k");
+				let _id = 'bankGood-'+ id +'_-All';
+				document.getElementById(_id).click();
 				buy(0);
 			}
 		}
@@ -408,15 +406,17 @@ EZStock.update = () => {
         EZStock.goods[id].profit = (good.val * bought) - (EZStock.goods[id].value * bought);
         EZStock.goods[id].lowval = good.val < EZStock.goods[id].lowval ? good.val : EZStock.goods[id].lowval;
         EZStock.goods[id].highval = good.val > EZStock.goods[id].highval ? good.val : EZStock.goods[id].highval;
-	if(EZStock.goods[id].delta*EZStock.bank.minigame.goodDelta(id) >= 0)
-		EZStock.goods[id].streak++;
-	else
-		EZStock.goods[id].streak = 1;
-	EZStock.goods[id].delta = EZStock.bank.minigame.goodDelta(id);
+		if (Math.abs(EZStock.goods[id].delta-EZStock.bank.minigame.goodDelta(id))>0.01) {
+			if(EZStock.goods[id].delta*EZStock.bank.minigame.goodDelta(id) >= 0)
+				EZStock.goods[id].streak++;
+			else
+				EZStock.goods[id].streak = 1;
+			EZStock.goods[id].delta = EZStock.bank.minigame.goodDelta(id);
+		}
 
-	if (EZStock.automate == true )
-		EZStock.automated(good,id);
-	EZStock.updateDisplay(good,id);
+		if (EZStock.automate == true )
+			EZStock.automated(good,id);
+		EZStock.updateDisplay(good,id);
     });
 
     let serialized = btoa(JSON.stringify(EZStock.goods));
