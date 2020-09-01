@@ -376,12 +376,13 @@ EZStock.automated = (good,id) => {
 	else {
 		if(good.val-curgood.value > 0) {
 			let sellgood = false;
-			if (good.val > Game.Objects['Bank'].level-1)
+			let settle = id*10+Game.Objects['Bank'].level-1;
+			if (good.val > settle)
 				sellgood = true;
 			if(curgood.delta < 0) {
-				if (good.val>((Game.Objects['Bank'].level-1)-curgood.value)*0.8+curgood.value && (curgood.streak >1 || curgood.delta < -5))
+				if (good.val>(settle-curgood.value)*0.8+curgood.value && (curgood.streak >1 || curgood.delta < -5))
 					sellgood =true;
-				if (good.val>((Game.Objects['Bank'].level-1)-curgood.value)*0.6+curgood.value && (curgood.streak >2 || curgood.delta < -10))
+				if (good.val>(settle-curgood.value)*0.6+curgood.value && (curgood.streak >2 || curgood.delta < -10))
 					sellgood =true;
 			}
 			if (sellgood == true) {
