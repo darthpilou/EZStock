@@ -77,7 +77,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-1" style="opacity:.4">
@@ -85,7 +85,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-2" style="opacity:.4">
@@ -93,7 +93,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-3" style="opacity:.4">
@@ -101,7 +101,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-4" style="opacity:.4">
@@ -109,7 +109,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-5" style="opacity:.4">
@@ -117,7 +117,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-6" style="opacity:.4">
@@ -125,7 +125,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-7" style="opacity:.4">
@@ -133,7 +133,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-8" style="opacity:.4">
@@ -141,7 +141,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-9" style="opacity:.4">
@@ -149,7 +149,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-10" style="opacity:.4">
@@ -157,7 +157,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-11" style="opacity:.4">
@@ -165,7 +165,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-12" style="opacity:.4">
@@ -173,7 +173,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-13" style="opacity:.4">
@@ -181,7 +181,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
         <tr id="EZStock-14" style="opacity:.4">
@@ -189,7 +189,7 @@ let EZStock = {
             <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
             <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
             <td><span class="EZStock-high">$0.00</span></td>
-            <td><span>|</span></td>
+            <td><span class="EZStock-move"></span></td>
             <td><span class="EZStock-profit">$0.00</span></td>
         </tr>
     </table>
@@ -210,7 +210,6 @@ EZStock.initializeGoods = () => {
 		streak: 1,
 		bought: 0,
 		value: 0,
-		profit: 0,
         };
     });
 };
@@ -262,34 +261,30 @@ EZStock.formatPrice = (val, colored) => {
 
 EZStock.updateDisplay = (good,id) => {
 	let row = document.getElementById('EZStockTable').querySelector(`#EZStock-${id}`);
+	let curgood = EZStock.goods[id];
+	let range = curgood.highval-curgood.lowval;
+	let ratio = (good.val-curgood.lowval)/range;
 	let low = row.querySelector('.EZStock-low');
 	let high = row.querySelector('.EZStock-high');
 	let progress = row.querySelector('.EZStock-progress');
 	let bar1 = row.querySelector('.EZStock-bar1');
 	let bar2 = row.querySelector('.EZStock-bar2');
-	let profit = row.querySelector('.EZStock-profit');
+	let move = row.querySelector('.EZStock-move');
+	let profit = (good.val * curgood.bought) - (EZStock.goods[id].value * curgood.bought);
+	let profitbar = row.querySelector('.EZStock-profit');
 	let width1 = 0;
 	let width2 = 0;
 	let color1 = "";
 	let color2 = "";
 	let colorprog = "transparent";
-	let alignleft = "&nbsp;&nbsp;&nbsp;&nbsp;";
-	let alignright = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-	let offset = "";
+	let offset = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 	let opac= 0.1;
 	let rowback = "transparent";
 	let profitHTML = "";
-	let curgood = EZStock.goods[id];
-	let range = curgood.highval-curgood.lowval;
-	let ratio = (good.val-curgood.lowval)/range;
+	let settle = (id+1)*10+Game.Objects['Bank'].level-1;
 
 	let dirchar = curgood.delta > 0 ? "►" : "◄";
 
-	if(ratio < 0.5) 
-		offset = alignright;
-	else
-		offset = alignleft;
-	
 	if (curgood.bought==0) {
 		width1 = ratio*100;
 		width2 = 100-300/(width1+0.001);
@@ -302,16 +297,15 @@ EZStock.updateDisplay = (good,id) => {
 		color1 = "rgb(" + red.toFixed(0) + "," + green.toFixed(0)  + ", 0)";
 		if(range<30 || opac<0.1)
 			opac=0.1;
-		if(ratio < 0.25 && range>30) {
+		if (good.val < (0.3+0.02*id)*settle)
 			rowback = "#3333FF"; 
-			if(ratio < 0.1)
-				rowback = "#6666FF"; 
-		}
+		if (good.val < (0.15+0.02*id)*settle)
+			rowback = "#6666FF"; 
 	}
 	else {
 		opac = 0.3;
 		color2 = "#405068";
-		profitHTML = EZStock.formatPrice(curgood.profit,true);
+		profitHTML = EZStock.formatPrice(profit,true);
 		if(good.val-curgood.value <0) {
 			width1 = (curgood.value-curgood.lowval)/range*100;
 			width2 = (good.val-curgood.lowval)/(curgood.value-curgood.lowval)*100;
@@ -322,7 +316,7 @@ EZStock.updateDisplay = (good,id) => {
 			width1 = (good.val-curgood.lowval)/range*100;
 			width2 = (curgood.value-curgood.lowval)/(good.val-curgood.lowval)*100;
 			color1 = "#73f21e";
-			if (good.val > (10*(id+1)+Game.Objects['Bank'].level-1) && good.val > curgood.value) {
+			if (good.val>settle) {
 				opac = 1;
 				rowback = "#9933FF";
 			}
@@ -336,66 +330,65 @@ EZStock.updateDisplay = (good,id) => {
 	bar1.style.background = color1;	
 	bar2.style.width = width2.toFixed(0) + "%";	
 	bar2.style.background = color2;	
-	bar2.innerHTML = offset + dirchar;
-	low.innerHTML = EZStock.formatPrice(EZStock.goods[id].lowval, false);
-	high.innerHTML = EZStock.formatPrice(EZStock.goods[id].highval, false);
-	profit.innerHTML = profitHTML;
+	if ( curgood.value > 0 ) 
+		bar2.innerHTML = offset + EZStock.formatPrice(curgood.value, false);
+	else
+		bar2.innerHTML = offset;
+	low.innerHTML = EZStock.formatPrice(curgood.lowval, false);
+	high.innerHTML = EZStock.formatPrice(curgood.highval, false);
+	profitbar.innerHTML = profitHTML;
+	move.innerHTML = dirchar;
 };
 
 EZStock.automated = (good,id) => {
 	let curgood = EZStock.goods[id];
 	let range = curgood.highval-curgood.lowval;
-	let ratio = (good.val-curgood.lowval)/range;
-
-	let buy = (b) => {
-		EZStock.goods[id].bought = b;
-		EZStock.goods[id].value = b == 0 ? 0 : good.val;
-	};
+	let buysell = false;
+	let msg = "";
+	let _id = "";
+	let settle = (id+1)*10+Game.Objects['Bank'].level-1;
 
 	if (curgood.bought==0) {
-		let buygood = false;
 		if(range>30) {
 			if ( Math.abs(good.val-curgood.lowval) <0.01 )
-				buygood = true;
+				buysell = true;
 			if(curgood.delta > 0) {
-				if (ratio < 0.1)
-					buygood =true;
-				if (ratio < 0.25 && (curgood.streak >1 || curgood.delta > 5 ))
-					buygood =true;
+				if (good.val < (0.15+0.02*id)*settle)
+					buysell =true;
+				if (good.val < (0.3+0.02*id)*settle && (curgood.streak >2 || curgood.delta > 10 ))
+					buysell =true;
 			}
 		}
-		if (buygood == true) {
-			let today = new Date();
-			let time = today.getHours() + ":" + today.getMinutes();
-			console.log(time + " bought " + EZStock.goods[id].name + " for " + good.val.toFixed(2).toString());
-			let _id = 'bankGood-'+ id +'_Max';
-			document.getElementById(_id).click();
-			buy(good.stock);
+		if (buysell == true) {
+			msg = " autobought " + curgood.name + " for " + good.val.toFixed(2).toString();
+			_id = 'bankGood-'+ id +'_Max';
 		}
 	}
 	else {
 		if(good.val-curgood.value > 0) {
-			let sellgood = false;
-			let settle = id*10+Game.Objects['Bank'].level-1;
-			if (good.val > settle)
-				sellgood = true;
+			if (Math.abs(good.val-curgood.highval) < 0.01)
+				buysell = true;
 			if(curgood.delta < 0) {
-				if (good.val>(settle-curgood.value)*0.8+curgood.value && (curgood.streak >1 || curgood.delta < -5))
-					sellgood =true;
-				if (good.val>(settle-curgood.value)*0.6+curgood.value && (curgood.streak >2 || curgood.delta < -10))
-					sellgood =true;
+				if (good.val>settle+10)
+					buysell =true;
+				if (good.val>settle && (curgood.streak >1 || curgood.delta < -5))
+					buysell =true;
 			}
-			if (sellgood == true) {
-				let today = new Date();
-				let time = today.getHours() + ":" + today.getMinutes();
-				let profit = curgood.profit/1000; 
-				console.log(time + " sold " + curgood.name + " for " + good.val.toFixed(2).toString() + " profit:" + profit.toFixed(0).toString() + "k");
-				let _id = 'bankGood-'+ id +'_-All';
-				document.getElementById(_id).click();
-				buy(0);
+			if (buysell == true) {
+				let profit = ((good.val * curgood.bought) - (EZStock.goods[id].value * curgood.bought))/1000; 
+				msg = " autosold " + curgood.name + " for " + good.val.toFixed(2).toString() + " profit:" + profit.toFixed(0).toString() + "k";
+				_id = 'bankGood-'+ id +'_-All';
 			}
 		}
-	}	
+	}
+	if ( buysell == true) {
+		let today = new Date();
+		let time = today.getHours() + ":" + today.getMinutes();
+		let prevbought = curgood.bought;
+		document.getElementById(_id).click();
+		if ( curgood.bought != prevbought)
+			console.log(time + msg);
+	}
 	
 }
 
@@ -406,7 +399,6 @@ EZStock.update = () => {
         let bought = EZStock.goods[id].bought;
         if (good.stock == 0)
             EZStock.goods[id].bought = 0;
-        EZStock.goods[id].profit = (good.val * bought) - (EZStock.goods[id].value * bought);
         EZStock.goods[id].lowval = good.val < EZStock.goods[id].lowval ? good.val : EZStock.goods[id].lowval;
         EZStock.goods[id].highval = good.val > EZStock.goods[id].highval ? good.val : EZStock.goods[id].highval;
 		if (Math.abs(EZStock.goods[id].delta-EZStock.bank.minigame.goodDelta(id))>0.01) {
@@ -442,10 +434,17 @@ EZStock.resetThresholds = () => {
 EZStock.initializeGoods();
 
 EZStock.minigameGoods.map((good, id) => {
-    let buy = (bought) => {
-        EZStock.goods[id].bought = bought;
-        EZStock.goods[id].value = bought == 0 ? 0 : good.val;
-        EZStock.update();
+    let buy = () => {
+		let curgood = EZStock.goods[id];
+		if (good.stock !=  curgood.bought) {
+			if( good.stock > curgood.bought ) {
+				let newavg = (curgood.bought*curgood.value + (good.stock-curgood.bought)*good.val)/good.stock;
+				curgood.value = newavg;
+			}
+			curgood.bought = good.stock;
+			if (good.stock == 0)
+				curgood.value = 0;
+		}
     };
 
     let buttons = ['1','10','100','Max','-1','-10','-100','-All'];
@@ -453,7 +452,7 @@ EZStock.minigameGoods.map((good, id) => {
         let _id = 'bankGood-' + id + '_' + b;
         document.getElementById(_id)
             .addEventListener('click', () => {
-                buy(b > good.stock ? b : good.stock);
+                buy();
             });
     });
 });
