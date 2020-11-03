@@ -71,16 +71,18 @@ let EZStock = {
 		
 		
     </style>
-    <table id="EZStockTable">` +
+    <table id="EZStockTable">
+` +
 ['CRL','CHC','BTR','SUG','NUT','SLT','VNL','EGG','CNM','CRM','JAM','WCH','HNY','CKI','RCP'].map((abbrev, index) => {
-    return `<tr id="EZStock-${index}" style="opacity:.4">
-                <td>${abbrev}</td>
-                <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-                <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-                <td><span class="EZStock-high">$0.00</span></td>
-                <td><span class="EZStock-move"></span></td>
-                <td><span class="EZStock-profit">$0.00</span></td>
-            </tr>`
+    return (
+`<tr id="EZStock-${index}" style="opacity:.4">
+    <td>${abbrev}</td>
+    <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
+    <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
+    <td><span class="EZStock-high">$0.00</span></td>
+    <td><span class="EZStock-move"></span></td>
+    <td><span class="EZStock-profit">$0.00</span></td>
+</tr>`);
 }).join('\n') +
 `    </table>
 </div>
