@@ -73,7 +73,7 @@ let EZStock = {
     </style>
     <table id="EZStockTable">
 ` +
-['CRL','CHC','BTR','SUG','NUT','SLT','VNL','EGG','CNM','CRM','JAM','WCH','HNY','CKI','RCP'].map((abbrev, index) => {
+['CRL','CHC','BTR','SUG','NUT','SLT','VNL','EGG','CNM','CRM','JAM','WCH','HNY','CKI','RCP','SBD'].map((abbrev, index) => {
     return (
 `<tr id="EZStock-${index}" style="opacity:.4">
     <td>${abbrev}</td>
