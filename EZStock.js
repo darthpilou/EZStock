@@ -71,128 +71,18 @@ let EZStock = {
 		
 		
     </style>
-    <table id="EZStockTable">
-        <tr id="EZStock-0" style="opacity:.4">
-            <td>CRL</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-1" style="opacity:.4">
-            <td>CHC</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-2" style="opacity:.4">
-            <td>BTR</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-3" style="opacity:.4">
-            <td>SUG</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-4" style="opacity:.4">
-            <td>NUT</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-5" style="opacity:.4">
-            <td>SLT</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-6" style="opacity:.4">
-            <td>VNL</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-7" style="opacity:.4">
-            <td>EGG</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-8" style="opacity:.4">
-            <td>CNM</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-9" style="opacity:.4">
-            <td>CRM</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-10" style="opacity:.4">
-            <td>JAM</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-11" style="opacity:.4">
-            <td>WCH</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-12" style="opacity:.4">
-            <td>HNY</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-13" style="opacity:.4">
-            <td>CKI</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-        <tr id="EZStock-14" style="opacity:.4">
-            <td>RCP</td>
-            <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
-            <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
-            <td><span class="EZStock-high">$0.00</span></td>
-            <td><span class="EZStock-move"></span></td>
-            <td><span class="EZStock-profit">$0.00</span></td>
-        </tr>
-    </table>
+    <table id="EZStockTable">` +
+['CRL','CHC','BTR','SUG','NUT','SLT','VNL','EGG','CNM','CRM','JAM','WCH','HNY','CKI','RCP'].map((abbrev, index) => {
+    return `<tr id="EZStock-${index}" style="opacity:.4">
+                <td>${abbrev}</td>
+                <td class="EZStock-ba"><span class="EZStock-low">$0.00</span></td><td>&nbsp;</td>
+                <td><div class="EZStock-progress"><div class="EZStock-bar1"><div class="EZStock-bar2">&nbsp;</div></div></div></td>
+                <td><span class="EZStock-high">$0.00</span></td>
+                <td><span class="EZStock-move"></span></td>
+                <td><span class="EZStock-profit">$0.00</span></td>
+            </tr>`
+}).join('\n') +
+`    </table>
 </div>
 `
 };
