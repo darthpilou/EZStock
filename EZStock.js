@@ -354,7 +354,12 @@ EZStock.saveData = EZStock.getCookie('EZStock_Data');
 
 if (EZStock.saveData != '')
 try {
-    EZStock.goods = JSON.parse(atob(EZStock.saveData));
+    let saved = JSON.parse(atob(EZStock.saveData));
+
+    // Loop over list so as not to overwrite newly added stock values
+    saved.forEach((good, index) => {
+        EZStock.goods[index] = good;
+    });
 } catch {
     console.log("Failed to load EZStock save data.");
 }
